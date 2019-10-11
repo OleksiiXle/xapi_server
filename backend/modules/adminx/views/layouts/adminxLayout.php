@@ -85,7 +85,6 @@ if (Yii::$app->session->getAllFlashes()){
 
 </div>
 
-
 <div id="xWrapper">
     <div id="xCover" ></div>
     <div id="xMenu" onclick="menuClick()">
