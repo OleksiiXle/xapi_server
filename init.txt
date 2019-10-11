@@ -1,0 +1,46 @@
+ composer create-project --prefer-dist yiisoft/yii2-app-advanced ./
+
+ Создать БД и прописать в main-local.php
+ php yii migrate
+ Инициализировать таблицы RBAC
+     php yii migrate --migrationPath=@yii/rbac/migrations
+ php yii init/menu-init
+ php yii init/auth-init
+ php yii init/user-init
+ or
+ php yii init/init
+
+ array (
+   'class' => 'app\\components\\UpzapiAuthClient',
+   'clientId' => 'upzapi',
+   'clientSecret' => '123',
+   'tokenUrl' => 'http://tentorg.local.api/oauth2/token',
+   'authUrl' => 'http://tentorg.local.api/oauth2/index?expand=email',
+   'apiBaseUrl' => 'http://tentorg.local.api/v1',
+   'id' => 'upzapi',
+ )
+
+
+ http://tentorg.local.api/oauth2/index?
+ expand=email
+ &client_id=upzapi
+ &response_type=code
+ &redirect_uri=http%3A%2F%2Ftentorg.local.cms%2Fsite%2Fsignin
+ &xoauth_displayname=My%20Application
+ &state=9320be5a9757e97ca049d176bfa6aced38e6ef4f904711575992972af9f716b2
+
+http://tentorg.local.api/oauth2/index?
+expand=email
+&client_id=upzapi
+&response_type=code
+&redirect_uri=http%3A%2F%2Ftentorg.local.cms%2Fsite%2Fsignin
+&xoauth_displayname=My+Application
+&state=f219e539811fcad468c09cc86fd45ed680686f929a0723b048af251925469c33#login-submit
+
+chmod 0777 backend/runtime
+      chmod 0777 backend/web/assets
+      chmod 0777 console/runtime
+      chmod 0777 frontend/runtime
+      chmod 0777 frontend/web/assets
+      chmod 0755 yii
+      chmod 0755 yii_test

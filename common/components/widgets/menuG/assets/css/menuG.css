@@ -1,0 +1,66 @@
+/*!important*/
+.node{
+    position: static;
+    font-weight: bold;
+   /* font-size: medium;*/
+    font-size: small;
+    color: black;
+    cursor: pointer;
+    display: inline-block;
+
+}
+
+.route {
+    cursor: pointer;
+    color: black;
+    font-size: small;
+
+    /*  font-size: medium;*/
+
+}
+
+.menu-tops{
+    position: relative;
+    float: left;
+    display: inline-block;
+
+}
+
+.submenu{
+
+}
+
+.menu-item{
+}
+.menu-item-active{
+    /*display: table ;*/
+    width: 150px;
+
+}
+
+li {
+    list-style-type: none; /* Убираем маркеры */
+    white-space:nowrap;
+}
+.firstLevelChildren{
+    position: absolute;
+    display: block;
+    background: #eeeeee;
+    border: 2px solid #bdbdbd; /* Параметры границы */
+    opacity: 0.8;
+
+}
+
+.childrenActive{
+    display: block;
+
+
+}
+.childrenNoActive{
+  /*  width: 300px;*/
+    display: none;
+
+}
+
+
+
