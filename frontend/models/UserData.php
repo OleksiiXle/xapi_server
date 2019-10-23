@@ -1,6 +1,6 @@
 <?php
 
-namespace backend\modules\adminx\models;
+namespace frontend\models;
 
 use Yii;
 use common\models\Functions;

@@ -2,7 +2,7 @@
 
 namespace backend\modules\adminx\controllers;
 
-use backend\modules\adminx\components\AccessControl;
+use common\components\access\AccessControl;
 use common\models\Configs;
 use yii\data\ActiveDataProvider;
 use yii\filters\VerbFilter;

@@ -2,7 +2,7 @@
 
 namespace backend\modules\adminx\controllers;
 
-use backend\modules\adminx\components\AccessControl;
+use common\components\access\AccessControl;
 use Yii;
 use backend\modules\adminx\models\RuleX;
 use yii\data\ActiveDataProvider;

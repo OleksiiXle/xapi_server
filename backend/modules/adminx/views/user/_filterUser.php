@@ -2,7 +2,7 @@
 
 use yii\helpers\Html;
 use yii\bootstrap\ActiveForm;
-use backend\modules\adminx\models\UserData;
+use common\models\UserData;
 use backend\modules\adminx\assets\AdminxUserFilterAsset;
 
 AdminxUserFilterAsset::register($this);

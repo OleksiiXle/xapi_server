@@ -2,7 +2,7 @@
 
 namespace common\components\conservation\models;
 
-use backend\modules\adminx\models\UserM;
+use common\models\UserM;
 use Yii;
 
 /**

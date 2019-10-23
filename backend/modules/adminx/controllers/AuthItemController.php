@@ -2,7 +2,7 @@
 namespace backend\modules\adminx\controllers;
 
 use common\components\conservation\ActiveDataProviderConserve;
-use backend\modules\adminx\components\AccessControl;
+use common\components\access\AccessControl;
 use backend\modules\adminx\models\AuthItem;
 use backend\modules\adminx\models\filters\AuthItemFilter;
 use yii\rbac\Item;

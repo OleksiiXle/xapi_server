@@ -1,6 +1,6 @@
 <?php
 
-namespace backend\modules\adminx\components;
+namespace common\components\access;
 
 use Yii;
 use yii\web\User;

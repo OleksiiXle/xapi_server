@@ -1,6 +1,6 @@
 <?php
 
-namespace backend\modules\adminx\components;
+namespace common\components\access;
 
 use Yii;
 use yii\web\ForbiddenHttpException;
@@ -90,11 +90,6 @@ class AccessControl extends \yii\base\ActionFilter
             return true;
         }
 
-        $userPermissions = \Yii::$app->authManager->getUserRolesPermissions() ;
-        if (isset($userPermissions['orgstatTestDB'])){
-          //  \Yii::$app->set('db', \Yii::$app->dbTest)   ; //\Yii::createObject($dbTest);
-            $ret = \Yii::$app->db;
-        }
 
         $user = $this->user;
         $request = Yii::$app->getRequest();

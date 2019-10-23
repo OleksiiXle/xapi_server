@@ -5,7 +5,7 @@ use yii\widgets\Pjax;
 use yii\helpers\Url;
 use common\components\widgets\xlegrid\Xlegrid;
 use common\components\widgets\menuAction\MenuActionWidget;
-use backend\modules\adminx\models\UserM;
+use common\models\UserM;
 use backend\modules\adminx\assets\AdminxUserAsset;
 
 AdminxUserAsset::register($this);

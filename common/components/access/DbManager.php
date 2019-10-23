@@ -1,8 +1,8 @@
 <?php
 
-namespace backend\modules\adminx\components;
+namespace common\components\access;
 
-use backend\modules\adminx\models\User;
+use common\models\User;
 use Yii;
 use yii\db\Query;
 use yii\rbac\Assignment;

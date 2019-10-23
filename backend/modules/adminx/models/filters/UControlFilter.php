@@ -1,9 +1,9 @@
 <?php
 namespace backend\modules\adminx\models\filters;
 
-use backend\modules\adminx\models\UControl;
-use backend\modules\adminx\models\UserData;
-use backend\modules\adminx\models\UserM;
+use common\models\UControl;
+use common\models\UserData;
+use common\models\UserM;
 use yii\base\Model;
 
 class UControlFilter extends Model

@@ -9,5 +9,14 @@ return [
         'cache' => [
             'class' => 'yii\caching\FileCache',
         ],
+        'authManager' => [
+            'class' => 'common\components\access\DbManager',
+            'cache' => 'cache'
+        ],
+        'configs' => [
+            'class' => 'common\components\ConfigsComponent',
+        ],
+
+
     ],
 ];

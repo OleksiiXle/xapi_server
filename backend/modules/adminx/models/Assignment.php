@@ -4,7 +4,7 @@ namespace backend\modules\adminx\models;
 
 use Yii;
 use yii\base\BaseObject;
-use backend\modules\adminx\components\Helper;
+use common\components\access\Helper;
 
 class Assignment extends BaseObject
 {

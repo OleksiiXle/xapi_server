@@ -1,6 +1,6 @@
 <?php
 
-namespace backend\modules\adminx\components;
+namespace common\components\access;
 
 class User extends \yii\web\User
 {

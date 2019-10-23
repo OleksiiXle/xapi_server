@@ -1,8 +1,8 @@
 <?php
 namespace backend\modules\adminx\models\filters;
 
-use backend\modules\adminx\models\UserData;
-use backend\modules\adminx\models\UserM;
+use common\models\UserData;
+use common\models\UserM;
 use yii\base\Model;
 
 class UserFilter extends Model

@@ -2,12 +2,12 @@
 
 namespace backend\modules\adminx\controllers;
 
-use backend\modules\adminx\models\UserData;
+use common\models\UserData;
 use Yii;
 use common\models\Functions;
 use common\components\conservation\ActiveDataProviderConserve;
 use common\components\conservation\models\Conservation;
-use backend\modules\adminx\components\AccessControl;
+use common\components\access\AccessControl;
 use backend\modules\adminx\models\Assignment;
 use backend\modules\adminx\models\filters\UserFilter;
 use backend\modules\adminx\models\form\ChangePassword;
@@ -17,7 +17,7 @@ use backend\modules\adminx\models\form\PasswordResetRequestForm;
 use backend\modules\adminx\models\form\ResetPasswordForm;
 use backend\modules\adminx\models\form\Signup;
 use backend\modules\adminx\models\form\Update;
-use backend\modules\adminx\models\UserM;
+use common\models\UserM;
 use yii\db\Query;
 use yii\filters\VerbFilter;
 use yii\web\BadRequestHttpException;

@@ -2,7 +2,7 @@
 
 namespace backend\modules\adminx\controllers;
 
-use backend\modules\adminx\models\UControl;
+use common\models\UControl;
 use yii\web\Controller;
 
 

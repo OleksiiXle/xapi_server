@@ -3,10 +3,10 @@
 namespace backend\modules\adminx\controllers;
 
 use common\components\conservation\ActiveDataProviderConserve;
-use backend\modules\adminx\components\AccessControl;
+use common\components\access\AccessControl;
 use backend\modules\adminx\models\filters\UControlFilter;
-use backend\modules\adminx\models\UControl;
-use backend\modules\adminx\models\UserM;
+use common\models\UControl;
+use common\models\UserM;
 
 /**
  * Class CheckController

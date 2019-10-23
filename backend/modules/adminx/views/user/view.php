@@ -1,7 +1,7 @@
 <?php
 use yii\helpers\Html;
 use \yii\widgets\DetailView;
-use \backend\modules\adminx\models\UserM;
+use common\models\UserM;
 use yii\jui\JuiAsset;
 use \backend\modules\adminx\assets\AdminxUserAsset;
 

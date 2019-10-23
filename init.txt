@@ -10,6 +10,8 @@
  or
  php yii init/init
 
+ INSERT INTO `oauth2_client`(`client_id`, `client_secret`, `redirect_uri`, `grant_type`, `scope`, `created_at`, `updated_at`, `created_by`, `updated_by`) VALUES ('xapi', '123','http://api.client', 'UserCredentials','none',1,1,1,1)
+
  array (
    'class' => 'app\\components\\UpzapiAuthClient',
    'clientId' => 'upzapi',

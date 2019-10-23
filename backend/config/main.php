@@ -21,22 +21,15 @@ return [
         ],
     ],
     'components' => [
-        'configs' => [
-            'class' => 'common\components\ConfigsComponent',
-        ],
         'request' => [
             'csrfParam' => '_csrf-backend',
         ],
         'user' => [
-            'class' => 'backend\modules\adminx\components\User',
-            'identityClass' => 'backend\modules\adminx\models\User',
+            'class' => 'common\components\access\User',
+            'identityClass' => 'common\models\User',
             'loginUrl' => ['site/login'],
             'enableAutoLogin' => true,
             'identityCookie' => ['name' => '_identity-backend', 'httpOnly' => true],
-        ],
-        'authManager' => [
-            'class' => 'backend\modules\adminx\components\DbManager',
-            'cache' => 'cache'
         ],
         'session' => [
             // this is the name of the session cookie used for login on the backend

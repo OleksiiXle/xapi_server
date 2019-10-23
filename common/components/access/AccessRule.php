@@ -1,6 +1,6 @@
 <?php
 
-namespace backend\modules\adminx\components;
+namespace common\components\access;
 
 use Closure;
 use yii\base\Action;
@@ -10,7 +10,7 @@ use yii\base\InvalidConfigException;
 use yii\helpers\IpHelper;
 use yii\helpers\StringHelper;
 use yii\web\Request;
-use backend\modules\adminx\models\User;
+use common\models\User;
 
 class AccessRule extends Component
 {
