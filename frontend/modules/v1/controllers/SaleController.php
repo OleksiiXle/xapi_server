@@ -2,6 +2,7 @@
 
 namespace frontend\modules\v1\controllers;
 
+use common\components\access\AccessControl;
 use frontend\modules\oauth2\TokenAuth;
 use frontend\modules\v1\models\KinoSeans;
 use yii\web\BadRequestHttpException;
@@ -11,21 +12,42 @@ use yii\web\Response;
 
 class SaleController extends Controller
 {
+
     public function behaviors()
     {
-        return [
-            // performs authorization by token
-            'tokenAuth' => [
-                'class' => TokenAuth::className(),
+        $behaviors = parent::behaviors();
+        $behaviors['tokenAuth'] = [
+            'class' => TokenAuth::className(),
+        ];
+        $behaviors['access'] = [
+            'class' => AccessControl::class,
+            'rules' => [
+                [
+                    'allow'      => true,
+                    'actions'    => [
+                        'index',
+                    ],
+                    'roles'      => ['@' ],
+                ],
+                [
+                    'allow'      => true,
+                    'actions'    => [
+                        'get-seans', 'get-reservation'
+                    ],
+                    'roles'      => ['systemAdminxx', ],
+                ],
             ],
         ];
+        return $behaviors;
     }
+
     public function beforeAction($action)
     {
         $this->enableCsrfValidation = false;
         \Yii::$app->response->format = Response::FORMAT_JSON;
         return parent::beforeAction($action);
     }
+
     protected function verbs()
     {
         return [
@@ -37,19 +59,6 @@ class SaleController extends Controller
 
     public function actionIndex()
     {
-        //  \yii::trace(\yii\helpers\VarDumper::dumpAsString($_post), "dbg");
-        $rec['METHOD'] = \Yii::$app->request->getMethod();
-        $rec['HEADERS'] = \Yii::$app->request->headers;
-        $rec['RAW_BODY'] = \Yii::$app->request->rawBody;
-        $rec['BODY_PARAMS'] = \Yii::$app->request->bodyParams;
-        $rec['QUERY_PARAMS'] = \Yii::$app->request->queryParams;
-        $rec['COOCIES'] = \Yii::$app->request->cookies;
-        if (\Yii::$app->request->isPost){
-            $rec['POST'] = \Yii::$app->request->post();
-        }
-        \yii::trace('************************************************ REQUEST', "dbg");
-        \yii::trace(\yii\helpers\VarDumper::dumpAsString($rec), "dbg");
-
         $ret = KinoSeans::find()->all();
         return $ret;
     }

@@ -92,6 +92,9 @@ class AccessControl extends \yii\base\ActionFilter
 
 
         $user = $this->user;
+     //   \yii::trace('************************************************ access user=' . $user->id, "dbg");
+     //   \yii::trace(\yii\helpers\VarDumper::dumpAsString($user), "dbg");
+
         $request = Yii::$app->getRequest();
         /* @var $rule AccessRule */
         if (!empty($this->rules)){
@@ -110,42 +113,6 @@ class AccessControl extends \yii\base\ActionFilter
                 }
             }
         }
-        //todo когда "as access" уйдет из web.php эту хреновину убрать
-        $actionId = $action->getUniqueId();
-        if (in_array($actionId,  $this->allowActions) ){
-            return true;
-        }
-        $userRolesPermissions = \Yii::$app->authManager->getUserRolesPermissions() ;
-        $r=1;
-        if (isset($userRolesPermissions[$actionId])){
-            return true;
-        } else {
-            while (($pos = strrpos($actionId, '/')) > 0) {
-                $actionId = substr($actionId, 0, $pos) ;
-                if (isset($userRolesPermissions['/' . $actionId . '/*'])) {
-                    return true;
-                }
-            }
-            if (\Yii::$app->request->isAjax){
-                if (\Yii::$app->user->can($actionId)){
-                    return true;
-                } else {
-                    $this->denyAccess($user);
-                    /*
-                    $response = new Response();
-                    $response->statusCode = 403;
-                    $response->send();
-                    exit();
-                    */
-                }
-            }
-            $this->denyAccess($user);
-        }
-
-
-
-
-
 
         $this->denyAccess($user);
     }

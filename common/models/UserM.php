@@ -401,7 +401,7 @@ class UserM extends MainModel
             'first_name' => $this->first_name,
             'middle_name' => $this->middle_name,
             'email' => $this->email,
-            'userRBAC' =>  \Yii::$app->authManager->getUserRolesPermissions(),
+            'permissions' =>  \Yii::$app->authManager->getUserRolesPermissions(),
             'userRBACVersion' => time(),
             'updated_at' => $this->updated_at,
         ];

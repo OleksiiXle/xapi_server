@@ -25,10 +25,11 @@ return [
             'csrfParam' => '_csrf-frontend',
         ],
         'user' => [
-            'class' => 'common\components\access\User',
-            'identityClass' => 'common\models\User',
+            'class' => 'frontend\modules\oauth2\models\UserYii',
+            'identityClass' => 'frontend\modules\oauth2\models\UserIdenty',
             'loginUrl' => ['site/login'],
-            'enableAutoLogin' => true,
+            'enableAutoLogin' => false,
+            'enableSession' => false,
             'identityCookie' => ['name' => '_identity-frontend', 'httpOnly' => true],
         ],
 
@@ -38,7 +39,7 @@ return [
         ],
         'log' => [
           //  'traceLevel' => YII_DEBUG ? 3 : 0,
-            'traceLevel' => 2,
+            'traceLevel' => 1,
             'targets' => [
                 [
                     'class' => 'yii\log\FileTarget',
@@ -53,8 +54,14 @@ return [
                 ],
             ],
         ],
+        /*
         'errorHandler' => [
             'errorAction' => 'site/error',
+        ],
+        */
+        'errorHandler' => [
+            'errorAction'=>'v1/system/error',
+            'class'=>'yii\web\ErrorHandler',
         ],
         'urlManager' => [
             'enablePrettyUrl' => true,

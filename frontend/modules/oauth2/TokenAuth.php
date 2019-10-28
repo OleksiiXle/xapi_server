@@ -1,9 +1,4 @@
 <?php
-/**
- * @link https://github.com/borodulin/yii2-oauth2-server
- * @copyright Copyright (c) 2015 Andrey Borodulin
- * @license https://github.com/borodulin/yii2-oauth2-server/blob/master/LICENSE
- */
 
 namespace frontend\modules\oauth2;
 
@@ -11,10 +6,11 @@ namespace frontend\modules\oauth2;
 use Yii;
 use yii\base\Controller;
 use yii\filters\auth\AuthMethod;
+use yii\web\ForbiddenHttpException;
 use yii\web\IdentityInterface;
 use yii\web\Response;
 use yii\web\UnauthorizedHttpException;
-use conquer\oauth2\models\AccessToken;
+use frontend\modules\oauth2\models\AccessToken;
 use conquer\oauth2\request\AccessTokenExtractor;
 
 /**
@@ -33,7 +29,6 @@ use conquer\oauth2\request\AccessTokenExtractor;
  * }
  * ```
  *
- * @author Andrey Borodulin
  */
 class TokenAuth extends AuthMethod
 {
@@ -75,11 +70,13 @@ class TokenAuth extends AuthMethod
 
         /** @var IdentityInterface $identityClass */
         $identityClass = is_null($this->identityClass) ? $user->identityClass : $this->identityClass;
+      //  \yii::trace('************************************************ $identityClass' , "dbg");
+      //  \yii::trace(\yii\helpers\VarDumper::dumpAsString($identityClass), "dbg");
 
         $identity = $identityClass::findIdentity($accessToken->user_id);
 
         if (empty($identity)) {
-            throw new Exception(Yii::t('conquer/oauth2', 'User is not found.'), Exception::ACCESS_DENIED);
+            throw new ForbiddenHttpException(Yii::t('conquer/oauth2', 'User is not found or not active.'));
         }
 
         $user->setIdentity($identity);

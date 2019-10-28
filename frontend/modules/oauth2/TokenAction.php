@@ -6,6 +6,7 @@ use Yii;
 use yii\base\Action;
 use yii\web\Response;
 use conquer\oauth2\BaseModel;
+use frontend\modules\oauth2\models\AccessToken;
 
 
 /**
@@ -37,6 +38,7 @@ class TokenAction extends Action
         'authorization_code' => 'conquer\oauth2\granttypes\Authorization',
         'refresh_token' => 'conquer\oauth2\granttypes\RefreshToken',
         'client_credentials' => 'conquer\oauth2\granttypes\ClientCredentials',
+        'logout' => 'frontend\modules\oauth2\granttypes\Logout',
 //         'password' => 'conquer\oauth2\granttypes\UserCredentials',
 //         'urn:ietf:params:oauth:grant-type:jwt-bearer' => 'conquer\oauth2\granttypes\JwtBearer',
     ];
@@ -54,12 +56,12 @@ class TokenAction extends Action
             throw new Exception(Yii::t('conquer/oauth2', 'The grant type was not specified in the request.'));
         }
         if (isset($this->grantTypes[$grantType])) {
-            \yii::trace('************************************************ grantType=' . $grantType, "dbg");
-            \yii::trace(\yii\helpers\VarDumper::dumpAsString($this->grantTypes[$grantType]), "dbg");
+          //  \yii::trace('************************************************ grantType=' . $grantType, "dbg");
+          //  \yii::trace(\yii\helpers\VarDumper::dumpAsString($this->grantTypes[$grantType]), "dbg");
             $grantModel = Yii::createObject($this->grantTypes[$grantType]);
             $grantModel->accessTokenLifetime = $this->accessTokenLifetime;
             $grantModel->refreshTokenLifetime = $this->refreshTokenLifetime;
-            \yii::trace(\yii\helpers\VarDumper::dumpAsString($grantModel), "dbg");
+         //   \yii::trace(\yii\helpers\VarDumper::dumpAsString($grantModel), "dbg");
         } else {
             throw new Exception(Yii::t('conquer/oauth2', 'An unsupported grant type was requested.'), Exception::UNSUPPORTED_GRANT_TYPE);
         }
@@ -69,7 +71,7 @@ class TokenAction extends Action
             \yii::trace('************************************************ grantType NO VALID', "dbg");
             \yii::trace(\yii\helpers\VarDumper::dumpAsString($grantModel->getErrors()), "dbg");
         } else {
-            \yii::trace('************************************************ grantType VALID', "dbg");
+         //   \yii::trace('************************************************ grantType VALID', "dbg");
         }
 
         Yii::$app->response->data = $grantModel->getResponseData();
